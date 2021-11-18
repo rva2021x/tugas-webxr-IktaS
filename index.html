@@ -5,29 +5,53 @@
 		<title>Hello, World! - A-Frame</title>
 		<meta name="description" content="Pong! - A-Frame" />
 		<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r134/examples/js/deprecated/Geometry.js"></script>
 		<script src="./js/aframe-physics-system.min.js"></script>
 	</head>
 	<body>
-		<a-scene>
+		<a-scene physics="debug: true; gravity: -9.8, debugDrawMode: 1">
+			<a-camera near="0.001"></a-camera>
 			<a-assets>
+				<img id="sky" src="./assets/veranda_4k.png" />
 				<a-asset-item id="ball" src="./assets/ball.glb"></a-asset-item>
-				<a-asset-item id="table" src="./assets/table.glb"></a-asset-item>
+				<a-asset-item
+					id="halftable"
+					src="./assets/halftable.glb"
+				></a-asset-item>
+				<a-asset-item id="net" src="./assets/net.glb"></a-asset-item>
 				<a-asset-item id="paddle" src="./assets/paddle.glb"></a-asset-item>
 			</a-assets>
+			<a-sky src="#sky"></a-sky>
 			<a-entity
-				gltf-model="#table"
+				gltf-model="#net"
 				position="0 0 -15"
 				scale="0.1 0.1 0.1"
+				static-body
+			></a-entity>
+			<a-entity
+				gltf-model="#halftable"
+				position="0 0 -15"
+				scale="0.1 0.1 0.1"
+				static-body
+			></a-entity>
+			<a-entity
+				gltf-model="#halftable"
+				position="0 1 -16"
+				rotation="-90 180 0"
+				scale="0.1 0.1 0.1"
+				static-body
 			></a-entity>
 			<a-entity
 				gltf-model="#ball"
 				position="0 1.170 -6.792"
 				scale="0.01 0.01 0.01"
+				dynamic-body="shape: sphere"
 			></a-entity>
 			<a-entity
 				gltf-model="#paddle"
 				position="0 0.878 -5"
 				scale="0.01 0.01 0.01"
+				dynamic-body
 			></a-entity>
 		</a-scene>
 	</body>
