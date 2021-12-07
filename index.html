@@ -11,7 +11,7 @@
 	</head>
 	<body>
 		<a-scene
-			physics="debug: true; gravity: -9.8; debugDrawMode: 1; restitution: 1.05; iterations: 1000; maxInterval: 0.00667"
+			physics="debug: true; gravity: -9.8; debugDrawMode: 1; restitution: 1.05; iterations: 10000; maxInterval: 0.0667"
 		>
 			<a-camera near="0.001"></a-camera>
 			<a-assets>
@@ -21,17 +21,10 @@
 					id="halftable"
 					src="./assets/halftable.glb"
 				></a-asset-item>
-				<!-- <a-asset-item
-					id="enviroment"
-					src="./assets/enviroment.glb"
-				></a-asset-item>
-				<a-asset-item
-					id="enviromentfloor"
-					src="./assets/enviromentfloor.glb"
-				></a-asset-item> -->
 				<a-asset-item id="net" src="./assets/net.glb"></a-asset-item>
 				<a-asset-item id="paddle" src="./assets/paddle.glb"></a-asset-item>
 				<audio id="toksound" src="./assets/hitsound.mp3" preload="auto"></audio>
+				<img id="controlsimage" src="./assets/controls.png" />
 			</a-assets>
 			<a-sky src="#sky"></a-sky>
 			<a-entity
@@ -89,6 +82,13 @@
 				align="center"
 				position="-0.377 2.167 -1.992"
 			></a-text>
+			<a-image
+				src="#controlsimage"
+				position="-1.031 1.343 -0.570"
+				rotation="-20.354 34.587 0.117"
+				width="0.5"
+				height="0.5"
+			></a-image>
 			<a-entity id="counter" counter="text: #countertext"></a-entity>
 			<script src="./js/ball.js"></script>
 			<script src="./js/index.js"></script>
