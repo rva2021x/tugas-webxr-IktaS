@@ -11,7 +11,7 @@
 	</head>
 	<body>
 		<a-scene
-			physics="debug: true; gravity: -9.8; debugDrawMode: 1; restitution: 1.05; iterations: 10000; maxInterval: 0.0667"
+			physics="debug: true; gravity: -9.8; restitution: 1.0005; iterations: 1000; maxInterval: 0.00667"
 		>
 			<a-camera near="0.001"></a-camera>
 			<a-assets>
@@ -46,21 +46,22 @@
 				scale="0.01 0.01 0.01"
 				static-body
 			></a-entity>
-			<a-entity
+			<a-sphere
+				color="white"
 				id="ballentity"
-				a-pong-ball="handEl: #handleft; counter: #counter"
-				gltf-model="#ball"
+				a-pong-ball="handEl: #handleft; counter: #counter; paddle: #paddlecontroller"
 				position="0 2 -1"
-				scale="0.001 0.001 0.00r1"
+				scale="0.015 0.015 0.015"
 				dynamic-body="shape: sphere;"
 				sound="src: #toksound;"
-			></a-entity>
+			></a-sphere>
 			<a-entity id="handleft" oculus-touch-controls="hand: left"></a-entity>
 			<a-entity
 				id="handright"
 				oculus-touch-controls="hand: right; model: false"
 			>
 				<a-entity
+					id="paddlecontroller"
 					a-paddle="counter: #counter"
 					gltf-model="#paddle"
 					scale="0.001 0.001 0.001"
